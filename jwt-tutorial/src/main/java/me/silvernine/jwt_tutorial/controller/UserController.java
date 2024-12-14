@@ -1,5 +1,6 @@
 package me.silvernine.jwt_tutorial.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import me.silvernine.jwt_tutorial.dto.LoginDto;
 import me.silvernine.jwt_tutorial.dto.TokenDto;
@@ -53,6 +54,12 @@ public class UserController {
 
         return ResponseEntity.ok(jwt);
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        return ResponseEntity.ok("Successfully logged out. Please delete the token on the client side.");
+    }
+
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")

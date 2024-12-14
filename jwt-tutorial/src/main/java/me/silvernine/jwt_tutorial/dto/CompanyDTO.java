@@ -1,11 +1,10 @@
 package me.silvernine.jwt_tutorial.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 
-import javax.xml.transform.Result;
+
 import java.util.List;
 
 @Data

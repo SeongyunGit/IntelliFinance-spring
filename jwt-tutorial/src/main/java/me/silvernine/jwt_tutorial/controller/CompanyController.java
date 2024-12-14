@@ -28,7 +28,6 @@ public class CompanyController {
     private final CompanyRepository companyRepository;
     private final CompanyOptionRepository companyOptionRepository;
 
-    // 데이터 가져와서 저장하기
     @PostMapping("/fetch")
     public ResponseEntity<String> fetchAndSaveCompanies() {
         try {
@@ -53,8 +52,6 @@ public class CompanyController {
                         .collect(Collectors.toList());
                 company.setOptions(options);
             }
-
-
             return ResponseEntity.ok(companies);
         } catch (Exception e) {
             log.error("error");

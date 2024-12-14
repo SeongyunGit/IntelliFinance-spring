@@ -7,12 +7,12 @@
       <DepositListItem
         v-if="bank.type_a === 'deposit'
         && (store.surveyData.deposit.kor_co_nm.length === 0 || store.surveyData.deposit.kor_co_nm.includes(bank.kor_co_nm))
-        && store.integrationProductOptions.some(option => 
-          option.fin_prdt_cd === bank.fin_prdt_cd 
-          && (store.surveyData.deposit.intr_rate_type_nm.length === 0 || store.surveyData.deposit.intr_rate_type_nm.includes(option.intr_rate_type_nm))
-          && (store.surveyData.deposit.save_trm.length === 0 || store.surveyData.deposit.save_trm.includes(option.save_trm))
-          && (!store.surveyData.deposit.intr_rate || store.surveyData.deposit.intr_rate > option.intr_rate)
-          && (!store.surveyData.deposit.intr_rate2 || store.surveyData.deposit.intr_rate2 > option.intr_rate2)
+        && store.integrationProducts.some(option => 
+          option.finPrdtCd === bank.finPrdtCd 
+          && (store.surveyData.deposit.intr_rate_type_nm.length === 0 || store.surveyData.deposit.intr_rate_type_nm.includes(option.intrRateTypeNm))
+          && (store.surveyData.deposit.save_trm.length === 0 || store.surveyData.deposit.save_trm.includes(option.saveTrm))
+          && (!store.surveyData.deposit.intr_rate || store.surveyData.deposit.intr_rate > option.intrRate)
+          && (!store.surveyData.deposit.intr_rate2 || store.surveyData.deposit.intr_rate2 > option.intrRate2)
         )"
         :bank="bank"
       />

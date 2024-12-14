@@ -20,6 +20,7 @@ public class CompanyOption {
     @JoinColumn(name = "fin_co_no")
     @JsonBackReference
     private Company company;
+
     private String areaCd;
     private String areaNm;
     private String exisYn;

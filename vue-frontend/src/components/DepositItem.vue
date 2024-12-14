@@ -2,15 +2,15 @@
   <div v-if="bank.type_a=='deposit'" class="bg-white rounded-lg shadow-md p-6 space-y-6">
     <!-- 은행 이름과 상품명 -->
     <div>
-      <h2 class="text-2xl font-semibold text-gray-800 mb-2">{{ bank.fin_prdt_nm }}</h2>
-      <p class="text-sm text-gray-500">{{ bank.kor_co_nm }}</p>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-2">{{ bank.finPrdtNm }}</h2>
+      <p class="text-sm text-gray-500">{{ bank.korCoNm }}</p>
     </div>
 
     <!-- 금리 정보 -->
     <div class="border-t border-gray-200 pt-4 space-y-3">
       <div class="text-sm text-gray-700">
-        <p><span class="font-medium text-blue-600">만기 후 1개월 이내:</span> {{ bank.mtrt_int }}</p>
-        <p><span class="font-medium text-blue-600">1개월 초과 6개월 이내:</span> {{ bank.loan_inci_expn }}</p>
+        <p><span class="font-medium text-blue-600">만기 후 1개월 이내:</span> {{ bank.mtrtInt }}</p>
+        <p><span class="font-medium text-blue-600">1개월 초과 6개월 이내:</span> {{ bank.loanInciExpn }}</p>
         <p><span class="font-medium text-blue-600">6개월 초과:</span> 예금</p>
       </div>
     </div>

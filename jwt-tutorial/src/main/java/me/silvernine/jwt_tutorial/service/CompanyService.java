@@ -46,7 +46,6 @@ public class CompanyService {
     public void fetchAndSaveCompanies() {
         try {
             CompanyDTO response = restTemplate.getForObject(API_URL, CompanyDTO.class);
-            System.out.println(restTemplate.getForObject(API_URL, CompanyDTO.class));
             if (response != null && response.getResult() != null) {
 
                 for (CompanyDTO.Result.Base baseInfo : response.getResult().getBaseList()) {

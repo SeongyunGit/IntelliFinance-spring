@@ -31,8 +31,8 @@
           <button @click.stop="handclick">
           <div v-for="item in store.companyList">
             <a
-              v-if="item.kor_co_nm === bank.kor_co_nm" 
-              :href="item.homp_url"
+              v-if="item.kor_co_nm === bank.korCoNm" 
+              :href="item.hompUrl"
               class="px-4 py-2 bg-teal-200 hover:bg-blue-200 rounded-lg text-blue-600 inline-block"
             >
             🏦 홈페이지 바로가기
@@ -47,21 +47,21 @@
       <div v-if="bank.open">
         <h3 class="text-lg font-semibold text-gray-700 mb-2">추천 상품 옵션</h3>
 
-        <div v-for="(option, index) in store.integrationProductOptions" :key="index" class="mb-4">
+        <div v-for="option in bank.options"  class="mb-4">
           <div
-            v-if="option.fin_prdt_cd === bank.fin_prdt_cd
-            && (deposit.intr_rate_type_nm.length === 0 || deposit.intr_rate_type_nm.includes(option.intr_rate_type_nm))
-            && (deposit.save_trm.length === 0 || deposit.save_trm.includes(option.save_trm))
-            && (deposit.intr_rate > option.intr_rate || !deposit.intr_rate)
-            && (deposit.intr_rate2 > option.intr_rate2 || !deposit.intr_rate2)"
+            v-if="option.finPrdtCd === bank.finPrdtd
+            && (deposit.intr_rate_type_nm.length === 0 || deposit.intr_rate_type_nm.includes(option.intrRateTypeNm))
+            && (deposit.save_trm.length === 0 || deposit.save_trm.includes(option.saveTrm))
+            && (deposit.intr_rate > option.intrRate || !deposit.intr_rate)
+            && (deposit.intr_rate2 > option.intrRate2 || !deposit.intr_rate2)"
             class="border rounded-lg shadow-sm"
           >
             <!-- 옵션 상세 정보 바로 보여줌 -->
             <div class="bg-gray-50 p-4">
-              <p class="font-medium text-gray-800">{{ option.intr_rate_type_nm }}</p>
-              <p class="text-gray-600">기간: {{ option.save_trm }}</p>
-              <p class="text-gray-600">기본 금리: {{ option.intr_rate }}%</p>
-              <p class="text-gray-600">우대 금리: {{ option.intr_rate2 }}%</p>
+              <p class="font-medium text-gray-800">{{ option.intrRateTypeNm }}</p>
+              <p class="text-gray-600">기간: {{ option.saveTrm }}</p>
+              <p class="text-gray-600">기본 금리: {{ option.intrRate }}%</p>
+              <p class="text-gray-600">우대 금리: {{ option.intrRate2 }}%</p>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ const handclick = () => {
 
 const formattedMtrtInt = computed(() => {
   // bank.mtrt_int에서 개행 문자를 <br>로 변환
-  return props.bank.mtrt_int.replace(/\n/g, "<br>");
+  return props.bank.mtrtInt.replace(/\n/g, "<br>");
 });
 
 store.integrationProductOptions.forEach(option => (option.open = false));

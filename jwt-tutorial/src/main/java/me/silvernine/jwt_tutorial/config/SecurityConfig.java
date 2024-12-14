@@ -57,7 +57,7 @@ public class SecurityConfig {
                 )
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                        .requestMatchers("/api/hello", "/api/authenticate", "/api/signup","/api/about","/api/login","/api/companies/fetch","/api/companies/all").permitAll()
+                        .requestMatchers("/api/hello", "/api/authenticate", "/api/signup","/api/about","/api/login","/api/companies/fetch","/api/companies/all","/api/bank/save","/api/bank/bank","/api/logout").permitAll()
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
                         .anyRequest().authenticated()
                 )

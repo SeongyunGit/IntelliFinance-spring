@@ -99,10 +99,13 @@ export const useCounterStore = defineStore('counter', () => {
     })
       .then((res) => {
         console.log(res.data)
-        token.value = res.data.key
+        token.value = res.data
         mPK.value = res.data.user_pk
+        console.log(mPK.value)
         Uname.value = res.data.username
-        Uemail.value = username
+        console.log(Uname.value)
+        Uemail.value = res.data.email
+        console.log(Uemail.value)
         isAdmin.value = res.data.is_staff  // 관리자 여부 저장
 
         // type_a_4.forEach(item => getSurveyData(mPK.value, item))
@@ -120,9 +123,11 @@ export const useCounterStore = defineStore('counter', () => {
   const logOut = function () {
     axios({
       method: 'post',
-      url: `${API_URL}/accounts/logout/`,
+      url: `${API_URL}/logout`,
     })
       .then((res) => {
+        localStorage.removeItem('token'); 
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";  // 쿠
         token.value = null
         mPK.value = null
         Uname.value = 'name'
@@ -183,12 +188,11 @@ export const useCounterStore = defineStore('counter', () => {
   const getIntegration = function () {
     axios({
       method: 'get',
-      url: `${API_URL}/api/v1/get_combined_integration_data/`,
+      url: `${API_URL}/bank/bank`,
     })
       .then((response) => {
-        // console.log(response.data)
-        integrationProducts.value = response.data.integrationProducts
-        integrationProductOptions.value = response.data.integrationProductOptions
+        console.log(response.data)
+        integrationProducts.value = response.data
       })
       .catch((err) => {
         console.log(err)
